@@ -2,11 +2,11 @@ sudo: required
 services: 
   - docker
 
-# before_install:
-#   - docker build -t basurohan/ckad-frontend ./frontend
+before_install:
+  - docker build -t basurohan/ckad-frontend ./frontend
 
-# script:
-#   - docker run basurohan/ckad-front npm test -- --coverage
+script:
+  - docker run basurohan/ckad-frontend npm test -- --coverage
 
 after_success:
   - docker build -t basurohan/ckad-frontend ./frontend
