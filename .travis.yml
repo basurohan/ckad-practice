@@ -1,0 +1,20 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t basurohan/ckad-frontend -f ./frontend
+
+script:
+  - docker run basurohan/ckad-front npm test -- --coverage
+
+after_success:
+  - docker build -t basurohan/ckad-frontend ./frontend
+  - docker build -t basurohan/ckad-api ./api
+  - docker build -t basurohan/ckad-nginx ./nginx
+  # Login to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Push images to docker hub
+  - docker push basurohan/ckad-frontend
+  - docker push basurohan/ckad-api
+  - docker push basurohan/ckad-nginx
