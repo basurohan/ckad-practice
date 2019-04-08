@@ -9,7 +9,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:80/api/message")
+    axios.get("/message/")
     .then((result) => {
       this.setState({ messages: result.data })
     }).catch((err) => {

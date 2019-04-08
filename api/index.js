@@ -17,6 +17,10 @@ pgClient
     .query('CREATE TABLE IF NOT EXISTS messages (message VARCHAR(50))')
     .catch(err => console.log(err));
 
+app.get("/status", (req, res) => {
+    res.send("Up");
+});
+
 app.get("/message", async (req, res) => {
     const toReturn = await pgClient
                             .query('SELECT * from messages')
