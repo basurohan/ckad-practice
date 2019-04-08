@@ -22,10 +22,10 @@ app.get("/status", (req, res) => {
 });
 
 app.get("/message", async (req, res) => {
-    const toReturn = await pgClient
-                            .query('SELECT * from messages')
-                            .catch(err => console.log(err));
-    res.send(toReturn.rows);
+    // const toReturn = await pgClient
+    //                         .query('SELECT * from messages')
+    //                         .catch(err => console.log(err));
+    res.send("Message from Server");
 });
 
 app.get("/insert", async (req, res) => {
