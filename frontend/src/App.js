@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 
+import keys from '../keys';
+
 class App extends Component {
 
   state = {
@@ -9,7 +11,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5000/message/")
+    axios.get(`{keys.APIPATH}/message/`)
     .then((result) => {
       this.setState({ messages: result.data })
     }).catch((err) => {
