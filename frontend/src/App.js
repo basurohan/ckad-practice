@@ -11,7 +11,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get(`${keys.APIPATH}/message/`)
+    console.log(keys.apiPath)
+    axios.get(`${keys.apiPath}/message/`)
     .then((result) => {
       this.setState({ messages: result.data })
     }).catch((err) => {
