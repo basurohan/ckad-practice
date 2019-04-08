@@ -35,7 +35,7 @@ app.get("/insert", async (req, res) => {
     res.send("message added");
 });
 
-app.post("/message", async (req, res) => {
+app.post("/messages", async (req, res) => {
     const message = req.body.message;
     await pgClient.query('INSERT INTO messages (message) VALUES($1)', [message]);
     res.send({added: true});
