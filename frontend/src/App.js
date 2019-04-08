@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 
-import keys from './keys';
+const keys = require('./keys');
 
 class App extends Component {
 
