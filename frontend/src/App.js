@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 
-import keys from '../keys';
+import keys from './keys';
 
 class App extends Component {
 
